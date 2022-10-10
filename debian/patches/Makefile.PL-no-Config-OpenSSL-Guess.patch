@@ -1,0 +1,30 @@
+Description: drop unneeded Crypt::OpenSSL::Guess
+ and don't compile with -lssl
+Origin: vendor
+Forwarded: not needed
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2018-05-05
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -3,7 +3,6 @@
+ 
+ use 5.006;
+ use ExtUtils::MakeMaker 6.48;
+-use Crypt::OpenSSL::Guess qw(openssl_inc_paths openssl_lib_paths);
+ 
+ # See lib/ExtUtils/MakeMaker.pm for details of how to influence
+ # the contents of the Makefile that is written.
+@@ -22,11 +21,10 @@
+         'Test::More'             => 0,
+     },
+     'OBJECT' => 'RSA.o',
+-    'LIBS'   => [openssl_lib_paths() . ' -lssl -lcrypto'],
++    'LIBS'   => ['-lcrypto'],
+     'DEFINE' => '-DPERL5 -DOPENSSL_NO_KRB5',
+ 
+     # perl-5.8/gcc-3.2 needs -DPERL5, and redhat9 likes -DOPENSSL_NO_KRB5
+-    'INC' => openssl_inc_paths(),    # e.g., '-I/usr/include/other'
+ 
+     'dist'  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+     'clean' => { FILES    => 'Crypt-OpenSSL-RSA-*' },

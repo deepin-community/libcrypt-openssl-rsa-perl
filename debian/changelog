@@ -1,0 +1,223 @@
+libcrypt-openssl-rsa-perl (0.32-2) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>  Thu, 16 Jun 2022 13:53:24 +0800
+
+libcrypt-openssl-rsa-perl (0.32-2) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Simon Chopin ]
+  * Cherry-pick an OpenSSL fix (LP: #1945798)
+
+ -- gregor herrmann <gregoa@debian.org>  Thu, 13 Jan 2022 19:55:56 +0100
+
+libcrypt-openssl-rsa-perl (0.32-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Bump debhelper from old 10 to 12.
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Bug-Submit, Repository, Repository-
+    Browse.
+  * Remove obsolete fields Contact, Name from debian/upstream/metadata
+    (already present in machine-readable debian/copyright).
+
+  [ gregor herrmann ]
+  * debian/control: update Build-Depends for cross builds.
+  * debian/watch: use uscan version 4.
+  * Replace '--with perl_openssl' in debian/rules with a build dependency
+    on 'dh-sequence-perl-openssl'.
+
+  [ Florian Schlichting ]
+  * Import upstream version 0.32.
+  * Annotate test-only build dependencies with <!nocheck>
+  * Declare compliance with Debian Policy 4.6.0
+
+ -- Florian Schlichting <fsfs@debian.org>  Sat, 25 Sep 2021 23:40:13 +0800
+
+libcrypt-openssl-rsa-perl (0.31-1) unstable; urgency=medium
+
+  * Import upstream version 0.31
+  * Set Rules-Requires-Root to no
+  * Update copyright years for debian/* packaging files
+  * Declare compliance with Debian policy 4.2.1
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 07 Oct 2018 00:03:52 +0200
+
+libcrypt-openssl-rsa-perl (0.30-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Salvatore Bonaccorso ]
+  * Update Vcs-* headers for switch to salsa.debian.org
+
+  [ gregor herrmann ]
+  * Add debian/upstream/metadata.
+  * Import upstream version 0.30.
+  * Update upstream contact.
+  * Update years of upstream copyright.
+  * Drop openssl-1.1.0.patch, fixed upstream.
+  * Replace Makefile.PL-no-ssl-in-LIBS.patch with
+    Makefile.PL-no-Config-OpenSSL-Guess.patch.
+    The former doesn't apply anymore, and Makefile.PL now uses
+    Crypt::OpenSSL::Guess which is not packaged and not needed on Debian. The
+    new patch removes Crypt::OpenSSL::Guess, and as the former one removes
+    compiling with -lssl.
+  * Update (build) dependencies.
+  * Declare compliance with Debian Policy 4.1.4.
+  * Bump debhelper compatibility level to 10.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 05 May 2018 19:30:02 +0200
+
+libcrypt-openssl-rsa-perl (0.28-5) unstable; urgency=medium
+
+  * Team upload.
+  * Dynamically generate a dependency on perl-openssl-abi-x.x
+    to ensure compatibility with other OpenSSL-related Perl modules.
+    (See #848113)
+
+ -- Niko Tyni <ntyni@debian.org>  Tue, 03 Jan 2017 14:08:30 +0200
+
+libcrypt-openssl-rsa-perl (0.28-4) unstable; urgency=medium
+
+  * Team upload.
+  * Remove Jonathan Yu from Uploaders. Thanks for your work!
+  * Add patch for OpenSSL 1.1.0 compatibility.
+    Thanks to Sebastian Andrzej Siewior for the patch. (Closes: #828387)
+
+ -- gregor herrmann <gregoa@debian.org>  Tue, 13 Dec 2016 16:36:22 +0100
+
+libcrypt-openssl-rsa-perl (0.28-3) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Salvatore Bonaccorso ]
+  * Update Vcs-Browser URL to cgit web frontend
+  * debian/control: Use HTTPS transport protocol for Vcs-Git URI
+
+  [ gregor herrmann ]
+  * debian/copyright: change Copyright-Format 1.0 URL to HTTPS.
+
+  [ intrigeri ]
+  * Enable all hardening build flags.
+  * Declare compliance with Standards-Version 3.9.8.
+  * Enable the autopkgtest-pkg-perl test suite.
+
+ -- intrigeri <intrigeri@debian.org>  Tue, 05 Jul 2016 20:37:58 +0000
+
+libcrypt-openssl-rsa-perl (0.28-2) unstable; urgency=low
+
+  * Team upload.
+
+  [ Salvatore Bonaccorso ]
+  * Change Vcs-Git to canonical URI (git://anonscm.debian.org)
+  * Change search.cpan.org based URIs to metacpan.org based URIs
+
+  [ Axel Beckert ]
+  * debian/copyright: migrate pre-1.0 format to 1.0 using "cme fix dpkg-
+    copyright"
+
+  [ gregor herrmann ]
+  * Strip trailing slash from metacpan URLs.
+
+  [ intrigeri ]
+  * Bump debhelper compat level to 9.
+  * Adjust versioned Build-Depends on debhelper to (>= 9.20120312~)
+    to get hardening build flags.
+  * Declare compatibility with Standards-Version 3.9.5.
+
+ -- intrigeri <intrigeri@debian.org>  Fri, 07 Mar 2014 00:14:33 +0100
+
+libcrypt-openssl-rsa-perl (0.28-1) unstable; urgency=low
+
+  [ Ansgar Burchardt ]
+  * debian/control: Convert Vcs-* fields to Git.
+
+  [ Salvatore Bonaccorso ]
+  * debian/copyright: Replace DEP5 Format-Specification URL from
+    svn.debian.org to anonscm.debian.org URL.
+  * Imported Upstream version 0.28
+  * debian/patches: Refresh Makefile.PL-no-ssl-in-LIBS.patch patch.
+  * Update copyright years for debian/* packaging
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 05 Jan 2012 13:01:22 +0100
+
+libcrypt-openssl-rsa-perl (0.27-1) unstable; urgency=low
+
+  [ Jonathan Yu ]
+  * New upstream release
+  * Added header to patch file and refresh patch
+  * Use new short rules format
+  * Add perl to B-D, it's not build-essential
+
+  [ gregor herrmann ]
+  * debian/watch: fix regexp for matching upstream releases.
+  * debian/control: Changed: Switched Vcs-Browser field to ViewSVN
+    (source stanza).
+
+  [ Nathan Handler ]
+  * debian/watch: Update to ignore development releases.
+
+  [ Salvatore Bonaccorso ]
+  * New upstream release
+    - Fix RSA.pm break with perl 5.14+ (Closes: #628636).
+  * debian/rules: Drop quilt framework
+  * debian/control: Drop quilt from Build-Depends.
+  * Convert to '3.0 (quilt)' source package format.
+  * Add myself to Uploaders.
+  * debian/patches: Referesh Makefile.PL-no-ssl-in-LIBS.patch patch.
+  * debian/copyright:
+    - Refresh format to revision 135 of DEP5 proposed format-
+      specification for machine-readable copyright information.
+    - Explicitly refer to GPL-1 license text in common-licenses.
+    - Refer to Debian systems in general instead of only Debian
+      GNU/Linux systems.
+  * Bump Standards-Version to 3.9.2.
+  * Drop debian/libcrypt-openssl-dsa-perl.substvars.
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 04 Jul 2011 08:11:06 +0200
+
+libcrypt-openssl-rsa-perl (0.25-1) unstable; urgency=low
+
+  * Take over for the Debian perl Group on maintainer's request
+
+  * debian/control: Added: Vcs-Svn field (source stanza); Vcs-Browser
+    field (source stanza); Homepage field (source stanza).
+  * Changed Maintainer to Debian Perl Group
+  * add debian/watch
+
+  * New upstream release
+  * add myself to Uploaders
+  * Standards-Version: 3.7.3 (no changes)
+  * debhelper compatibility level 6
+  * add ${perl:Depends} to Depends. Thanks, Niko.
+  * use dist-based upstream URL in debian/copyright
+  * debian/rules: sync with dh-make-perl's template
+  * add Makefile.PL-no-ssl-in-LIBS.patch and involve quilt in the build
+    process
+  * add libcrypt-openssl-bignum-perl to Build-Depends to allow the bugnum
+    tests
+
+ -- Damyan Ivanov <dmn@debian.org>  Sun, 27 Jan 2008 22:49:22 +0200
+
+libcrypt-openssl-rsa-perl (0.24-2) unstable; urgency=high
+
+  * Add dependency on libcrypt-openssl-bignum-perl (Closes: #425744).
+
+ -- Luk Claes <luk@debian.org>  Wed, 23 May 2007 20:03:22 +0200
+
+libcrypt-openssl-rsa-perl (0.24-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Luk Claes <luk@debian.org>  Sat, 21 Apr 2007 15:38:41 +0200
+
+libcrypt-openssl-rsa-perl (0.23-1) unstable; urgency=low
+
+  * Initial release (Closes: #362956).
+
+ -- Luk Claes <luk@debian.org>  Mon, 15 May 2006 04:40:52 +0200

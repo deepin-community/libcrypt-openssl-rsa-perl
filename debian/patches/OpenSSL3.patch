@@ -1,0 +1,32 @@
+From 01039e16a51c83b50df70768774ef9ef610794c3 Mon Sep 17 00:00:00 2001
+From: kambe-mikb <77083885+kambe-mikb@users.noreply.github.com>
+Date: Tue, 28 Sep 2021 17:40:18 +1000
+Subject: [PATCH] Fix for Issue 31
+Bug: https://github.com/toddr/Crypt-OpenSSL-RSA/pull/32
+
+Fix Issue 31 by removing reference to RSA_SSLV23_PADDING (removed from OpenSSL starting from v3.0.0)
+---
+ RSA.xs | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/RSA.xs b/RSA.xs
+index 46cb199..4f65dfc 100644
+--- a/RSA.xs
++++ b/RSA.xs
+@@ -640,12 +640,16 @@ use_pkcs1_oaep_padding(p_rsa)
+   CODE:
+     p_rsa->padding = RSA_PKCS1_OAEP_PADDING;
+ 
++#if OPENSSL_VERSION_NUMBER < 0x30000000L
++
+ void
+ use_sslv23_padding(p_rsa)
+     rsaData* p_rsa;
+   CODE:
+     p_rsa->padding = RSA_SSLV23_PADDING;
+ 
++#endif
++
+ # Sign text. Returns the signature.
+ 
+ SV*
